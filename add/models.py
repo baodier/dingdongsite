@@ -27,11 +27,11 @@ class StudentBaseInfo(models.Model):
     registration_date = models.DateTimeField("date registration", default=timezone.now())
     edit_date = models.DateTimeField('date edit', default=timezone.now())
 
-    def __str__(self):
-        xingbie = u"男"
-        if self.sex == 0:
-            xingbie = u"女"
-        return str(self.student_id)+"\t"+self.name+"\t"+xingbie+"\t"+str(self.score_big)+"\t"+str(self.score_small)+"\t"+self.district+"\t"+self.school
+    def __unicode__(self):
+        # xingbie = "男"
+        # if self.sex == 0:
+        #     xingbie = "女"
+        return str(self.student_id)+"\t"+self.name+"\t"+self.sex+"\t"+str(self.score_big)+"\t"+str(self.score_small)+"\t"+self.district+"\t"+self.school
 
 
 # class Choice(models.Model):
@@ -49,7 +49,7 @@ class StudentPlanSchool(models.Model):
     fill_date = models.DateTimeField("date fill", default=timezone.now())
     edit_date = models.DateTimeField('date edit', default=timezone.now())
 
-    def __str__(self):
+    def __unicode__(self):
         return str(self.student_id)+"\t"+self.school1+"\t"+self.school2+ \
                "\t" + self.school3+"\t"+self.school4+"\t"+self.school5+"\t"+self.school6
 
@@ -67,21 +67,36 @@ class StudentPlanSchoolDepartment(models.Model):
     fill_date = models.DateTimeField("date fill", default=timezone.now())
     edit_date = models.DateTimeField('date edit', default=timezone.now())
 
-    def __str__(self):
+    def __unicode__(self):
         return str(self.student_id)+"\t"+self.school+"\t"+ \
                self.depa1+"\t"+self.depa2+"\t"+self.depa3+"\t"+self.depa4+ "\t" + \
                self.depa5+"\t"+self.depa6+"\t"+str(self.canadjust)
 
 
-class StudentAdmitResult(models.Model):
-    student_id = models.IntegerField(max_length=32)
-    school = models.CharField(max_length=100)
+
+class SchoolPlan(models.Model):
+    priority = models.CharField(max_length=32)
+    code = models.IntegerField(max_length=32)
+    name = models.CharField(max_length=100)
+    reputation = models.IntegerField(max_length=32)
+    schooltype = models.CharField(max_length=32)
+    belongto = models.CharField(max_length=32)
+    major = models.CharField(max_length=100)
     department = models.CharField(max_length=100)
-    school_priority = models.SmallIntegerField(max_length=4)
-    department_priority = models.SmallIntegerField(max_length=4)
-    isadmited = models.BinaryField(default=0)
+    studentnum = models.IntegerField(max_length=32)
+    major_detail = models.CharField(max_length=200)
+    province = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    money = models.IntegerField(max_length=32)
+    sex = models.SmallIntegerField(max_length=10, default=0)
+    years = models.SmallIntegerField(max_length=10)
+    language = models.CharField(max_length=32)
     fill_date = models.DateTimeField("date fill", default=timezone.now())
     edit_date = models.DateTimeField('date edit', default=timezone.now())
 
-    def __str__(self):
-        return str(self.student_id)+"\t"+self.school+"\t"+self.department+"\t"+str(self.school_priority)+"\t"+str(self.department_priority)+"\t"+str(self.isadmited)
+    def __unicode__(self):
+        return self.priority+"\t"+str(self.code)+"\t"+self.name+"\t"+str(self.reputation)+"\t"+self.schooltype+"\t"+\
+               self.belongto+"\t"+self.major+"\t"+self.department+"\t"+str(self.studentnum)+"\t"+self.major_detail+"\t"+\
+               self.priority+"\t"+self.city+"\t"+str(self.money)+"\t"+str(self.sex)+"\t"+str(self.years)+"\t"+self.language
+
+

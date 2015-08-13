@@ -5,13 +5,68 @@
     <title></title>
 </head>
 <body>
-<form action="{% url 'add:vote' question.id %}" method="post">
+<form action="{% url 'add:model' %}" method="post">
 {% csrf_token %}
-{% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-{% endfor %}
-<input type="submit" value="Vote" />
+    <fieldset class="module aligned ">
+        <div class="form-row field-student_id">
+            <div>
+                <label class="required" for="id_student_id">Student id:</label>
+                <input class="vIntegerField" id="id_student_id" name="student_id" type="text">
+                </div>
+        </div>
+        <div class="form-row field-name">
+                <div>
+                        <label class="required" for="id_name">Name:</label>
+                            <input class="vTextField" id="id_name" maxlength="200" name="name" type="text">
+                </div>
+        </div>
+
+        <div class="form-row field-sex">
+                <div class="checkbox-row">
+                        <input checked="checked" id="id_sex" name="sex" type="checkbox" value="1"><label class="vCheckboxLabel" for="id_sex">Sex</label>
+                </div>
+        </div>
+
+        <div class="form-row field-score_big">
+            <div>
+                        <label class="required" for="id_score_big">Score big:</label>
+                <input id="id_score_big" name="score_big" step="any" type="number">
+                </div>
+        </div>
+
+        <div class="form-row field-score_small">
+                <div>
+                        <label class="required" for="id_score_small">Score small:</label>
+                            <input id="id_score_small" name="score_small" step="any" type="number">
+                </div>
+        </div>
+
+        <div class="form-row field-score_add">
+                <div>
+                    <label class="required" for="id_score_add">Score add:</label>
+                            <input id="id_score_add" name="score_add" step="any" type="number">
+                </div>
+        </div>
+
+        <div class="form-row field-district">
+                <div>
+                        <label class="required" for="id_district">District:</label>
+                            <input class="vTextField" id="id_district" maxlength="200" name="district" type="text">
+                </div>
+        </div>
+
+        <div class="form-row field-school">
+                <div>
+                        <label class="required" for="id_school">School:</label>
+                    <input class="vTextField" id="id_school" maxlength="200" name="school" type="text">
+                </div>
+
+        </div>
+
+        <input type="hidden" name="type" value="1">
+        <input type="submit" value="Vote" />
+
+</fieldset>
 </form>
 </body>
 </html>

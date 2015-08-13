@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="{% url 'add:model' %}" method="post">
+    {% csrf_token %}
+    <fieldset class="module aligned ">
+        <div class="form-row field-priority">
+            <div>
+                <label class="required" for="id_priority">Priority:</label>
+                <input class="vTextField" id="id_priority" maxlength="32" name="priority" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-code">
+            <div>
+                <label class="required" for="id_code">Code:</label>
+                <input class="vIntegerField" id="id_code" name="code" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-name">
+            <div>
+                <label class="required" for="id_name">Name:</label>
+                <input class="vTextField" id="id_name" maxlength="100" name="name" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-reputation">
+            <div>
+                <label class="required" for="id_reputation">Reputation:</label>
+                <input class="vIntegerField" id="id_reputation" name="reputation" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-schooltype">
+            <div>
+                <label class="required" for="id_schooltype">Schooltype:</label>
+                <input class="vTextField" id="id_schooltype" maxlength="32" name="schooltype" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-belongto">
+            <div>
+                <label class="required" for="id_belongto">Belongto:</label>
+                <input class="vTextField" id="id_belongto" maxlength="32" name="belongto" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-major">
+            <div>
+                <label class="required" for="id_major">Major:</label>
+                <input class="vTextField" id="id_major" maxlength="100" name="major" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-department">
+            <div>
+                <label class="required" for="id_department">Department:</label>
+                <input class="vTextField" id="id_department" maxlength="100" name="department" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-studentnum">
+            <div>
+                <label class="required" for="id_studentnum">Studentnum:</label>
+                <input class="vIntegerField" id="id_studentnum" name="studentnum" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-major_detail">
+            <div>
+                <label class="required" for="id_major_detail">Major detail:</label>
+                <input class="vTextField" id="id_major_detail" maxlength="200" name="major_detail" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-province">
+            <div>
+                <label class="required" for="id_province">Province:</label>
+                <input class="vTextField" id="id_province" maxlength="100" name="province" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-city">
+            <div>
+                <label class="required" for="id_city">City:</label>
+                <input class="vTextField" id="id_city" maxlength="100" name="city" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-money">
+            <div>
+                <label class="required" for="id_money">Money:</label>
+                <input class="vIntegerField" id="id_money" name="money" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-sex">
+            <div>
+                <label class="required" for="id_sex">Sex:</label>
+                <input class="vIntegerField" id="id_sex" name="sex" type="text" value="0">
+            </div>
+        </div>
+
+        <div class="form-row field-years">
+            <div>
+                <label class="required" for="id_years">Years:</label>
+                <input class="vIntegerField" id="id_years" name="years" type="text">
+            </div>
+        </div>
+
+        <div class="form-row field-language">
+            <div>
+                <label class="required" for="id_language">Language:</label>
+                <input class="vTextField" id="id_language" maxlength="32" name="language" type="text">
+            </div>
+        </div>
+    </fieldset>
+
+    <input type="hidden" name="type" value="2">
+    <input type="submit" value="Vote" />
+</form>
+
+
+</body>
+</html>
