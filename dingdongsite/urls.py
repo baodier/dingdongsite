@@ -20,5 +20,6 @@ urlpatterns = [
     #url(r'^$', 'learn.views.index', name='home')
     url(r'^admin/', include(admin.site.urls)),
     url(r'^add/', include('add.urls', namespace="add")),
+    url(r'^home/', include('home.urls', namespace="home")),
     url(r'^$', 'home.views.index', name='index'),
 ]

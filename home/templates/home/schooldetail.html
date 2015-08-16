@@ -5,18 +5,26 @@
     <title></title>
 </head>
 <body>
+
+{{ detail }}
 {% if error_message %}
     <p>
         <strong>{{ error_message }}</strong>
     </p>
 {% endif %}
-<h1>{{ name }}</h1>
 
+<form action="{% url 'home:detailschool' %}" method="post">
+    {% csrf_token %}
+    <div>
+                <label for="id_code">学校名称:</label>
+                <input id="id_code" name="schoolname" type="text">
+    </div>
+    <input type="submit" value="search" />
+</form>
 <ul>
 {% for item in school_detail %}
     <li>{{ item }}</li>
 {% endfor %}
 </ul>
-
 </body>
 </html>

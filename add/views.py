@@ -11,7 +11,10 @@ def addUser(request):
 def addSchool(request):
     return render(request, 'add/school.html', )
 
+
+
 def model(request):
+    print request.POST
     model_type = request.POST['type']
     print model_type
     if model_type == "1": #add user
@@ -49,34 +52,39 @@ def model(request):
 
         p = SchoolPlan.objects.filter(name=name)
 
-        if p:
-            return render(request, 'add/schooldetail.html', {
-                'error_message': "school has already exist!",
-                })
-        else:
-            reputation = request.POST["reputation"]
-            schooltype = request.POST["schooltype"]
-            belongto = request.POST["belongto"]
-            major = request.POST["major"]
-            department = request.POST["department"]
-            studentnum = request.POST["studentnum"]
-            majordetail = request.POST["major_detail"]
-            province = request.POST["province"]
-            city = request.POST["city"]
-            money = request.POST["money"]
-            sex = request.POST["sex"]
-            years = request.POST["years"]
-            language = request.POST["language"]
+        #if p:
+            #return render(request, 'add/schooldetail.html', {
+         #       'error_message': "school has already exist!",
+          #      })
+        #else:
+        print "123"
+        reputation = request.POST["reputation"]
+        schooltype = request.POST["schooltype"]
+        belongto = request.POST["belongto"]
+        major = request.POST["major"]
+        department = request.POST["department"]
+        studentnum = request.POST["studentnum"]
+        majordetail = request.POST["major_detail"]
 
-            print priority
-            print "!!!!"
-            print majordetail
-            print "@@@@"
-            schoolplan = SchoolPlan(priority=priority, code=code, name=name, reputation=reputation, schooltype=schooltype,
+        province = request.POST["province"]
+        city = request.POST["city"]
+        money = request.POST["money"]
+        sex = request.POST["sex"]
+        years = request.POST["years"]
+        language = request.POST["language"]
+
+        print priority
+        print "!!!!"
+        print majordetail
+        print "@@@@"
+        schoolplan = SchoolPlan(priority=priority, code=code, name=name, reputation=reputation, schooltype=schooltype,
                                     belongto = belongto, major = major, department = department, studentnum = studentnum,
                                     major_detail = majordetail, province = province, city = city, money = money, sex = sex,
                                     years = years, language = language)
-            print "ready to save"
-            schoolplan.save()
-            return render(request, "add/schooldetail.html", {'schoolplan': schoolplan,
-                                                             })
+        print "ready to save"
+        schoolplan.save()
+        print "save done"
+        school_detail = SchoolPlan.objects.filter(name=name)
+        print school_detail
+
+        return render(request, "add/schooldetail.html", {'school_detail': school_detail, 'name': name})
