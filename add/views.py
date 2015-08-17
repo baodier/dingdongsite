@@ -1,9 +1,43 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
 from models import StudentBaseInfo, SchoolPlan
-from django.core.exceptions import ObjectDoesNotExist
-
+from django.http import JsonResponse
+import json
 # Create your views here.
+
+def ajax_province(request):
+    p = SchoolPlan.objects.values('province').distinct().order_by('province')
+    print p
+    ret = list()
+    for item in p:
+        ret.append(item['province'])
+
+    return JsonResponse(ret, safe=False)
+
+def ajax_school(request):
+    print request
+    province = request.GET['province']
+    print province
+    p = SchoolPlan.objects.filter(province=province).values('name').distinct().order_by('name')
+    print p
+    ret = list()
+    for item in p:
+        ret.append(item['name'])
+
+    return JsonResponse(ret, safe=False)
+
+
+def ajax_major(request):
+    print request
+    school = request.GET['school']
+    print school
+    p = SchoolPlan.objects.filter(name=school).values('major').distinct().order_by('major')
+    print p
+    ret = list()
+    for item in p:
+        ret.append(item['major'])
+
+    return JsonResponse(ret, safe=False)
+
 
 def addUser(request):
     return render(request, 'add/user.html', )
