@@ -9,101 +9,263 @@
 
 <form action="{% url 'add:model' %}" method="post">
 {% csrf_token %}
-    <fieldset class="module aligned ">
-        <div class="form-row field-student_id">
-            <div>
+    <table>
+        <tr>
+            <td>
                 <label class="required" for="id_student_id">Student id:</label>
+            </td>
+            <td>
                 <input class="vIntegerField" id="id_student_id" name="student_id" type="text">
-                </div>
-        </div>
-        <div class="form-row field-name">
-                <div>
-                        <label class="required" for="id_name">Name:</label>
-                            <input class="vTextField" id="id_name" maxlength="200" name="name" type="text">
-                </div>
-        </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="required" for="id_name">Name:</label>
+            </td>
+            <td>
+                <input class="vTextField" id="id_name" maxlength="200" name="name" type="text">
+            </td>
+        </tr>
 
-        <div class="form-row field-sex">
-                <div class="checkbox-row">
-                        <input checked="checked" id="id_sex" name="sex" type="checkbox" value="1"><label class="vCheckboxLabel" for="id_sex">Sex</label>
-                </div>
-        </div>
+        <tr>
+            <td>
+                <input checked="checked" id="id_sex" name="sex" type="checkbox" value="1">
+                <label class="vCheckboxLabel" for="id_sex">男</label>
+            </td>
+        </tr>
 
-        <div class="form-row field-score_big">
-            <div>
-                        <label class="required" for="id_score_big">Score big:</label>
-                <input id="id_score_big" name="score_big" step="any" type="number">
-                </div>
-        </div>
+        <tr>
+            <td><label class="required" for="id_score_big">Score big:</label></td>
+            <td><input id="id_score_big" name="score_big" step="any" type="number"></td>
+        </tr>
 
-        <div class="form-row field-score_small">
-                <div>
-                        <label class="required" for="id_score_small">Score small:</label>
-                            <input id="id_score_small" name="score_small" step="any" type="number">
-                </div>
-        </div>
+        <tr>
+            <td><label class="required" for="id_score_small">Score small:</label></td>
+            <td><input id="id_score_small" name="score_small" step="any" type="number"></td>
+        </tr>
 
-        <div class="form-row field-score_add">
-                <div>
-                    <label class="required" for="id_score_add">Score add:</label>
-                            <input id="id_score_add" name="score_add" step="any" type="number">
-                </div>
-        </div>
+        <tr>
+            <td><label class="required" for="id_score_add">Score add:</label></td>
+            <td><input id="id_score_add" name="score_add" step="any" type="number"></td>
+        </tr>
 
-        <div class="form-row field-district">
-                <div>
-                        <label class="required" for="id_district">District:</label>
-                            <input class="vTextField" id="id_district" maxlength="200" name="district" type="text">
-                </div>
-        </div>
+        <tr>
+            <td><label class="required" for="id_district">District:</label></td>
+            <td><input class="vTextField" id="id_district" maxlength="200" name="district" type="text"></td>
+        </tr>
 
-        <div class="form-row field-school">
-                <div>
-                        <label class="required" for="id_school">School:</label>
-                    <input class="vTextField" id="id_school" maxlength="200" name="school" type="text">
-                </div>
+        <tr>
+            <td><label class="required" for="id_school">School:</label></td>
+            <td><input class="vTextField" id="id_school" maxlength="200" name="school" type="text"></td>
+        </tr>
+    </table>
 
-        </div>
+    <table>
+        <tr>
+            <td height="30" colspan="2" align="left" valign="middle">第一志愿<font style="color:#CB0100;">院校</font>：
+              <select name="signprovince1" id="signprovince1">
+                  <option value="0">省份</option>
+              </select>
+              <select name="signcollage1" id="signcollage1">
+                  <option value="">请选择院校</option>
+              </select>
 
+                <select name="school1plan1" id="school1plan1">
+                  <option value="">请选择专业</option>
+              </select>
+                <select name="school1plan2" id="school1plan2">
+                  <option value="">请选择专业</option>
+              </select>
+                <select name="school1plan3" id="school1plan3">
+                  <option value="">请选择专业</option>
+              </select>
+                <select name="school1plan4" id="school1plan4">
+                  <option value="">请选择专业</option>
+              </select>
+                <select name="school1plan5" id="school1plan5">
+                  <option value="">请选择专业</option>
+              </select>
+                <select name="school1plan6" id="school1plan6">
+                  <option value="">请选择专业</option>
+              </select>
+            </td>
+            <td>
+                <input checked="checked" id="id_canadjust1" name="canadjust1" type="checkbox" value="1">
+                <label class="vCheckboxLabel" for="id_canadjust1">服从调剂</label>
+            </td>
+            </tr>
+            <tr>
+            <td height="30" colspan="2" align="left" valign="middle">第二志愿<font style="color:#CB0100;">院校</font>：
+          <select name="signprovince2" id="signprovince2">
+              <option value="0">省份</option>
+          </select>
+          <select name="signcollage2" id="signcollage2">
+              <option value="">请选择院校</option>
+          </select>
 
-        <input type="hidden" name="type" value="1">
-        <input type="submit" value="Vote" />
+            <select name="school2plan1" id="school2plan1">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school2plan2" id="school2plan2">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school2plan3" id="school2plan3">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school2plan4" id="school2plan4">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school2plan5" id="school2plan5">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school2plan6" id="school2plan6">
+              <option value="">请选择专业</option>
+          </select>
+        </td>
+                 <td>
+                <input checked="checked" id="id_canadjust2" name="canadjust2" type="checkbox" value="1">
+                <label class="vCheckboxLabel" for="id_canadjust2">服从调剂</label>
+            </td>
+                </tr>
+        <tr>
 
+            <td height="30" colspan="2" align="left" valign="middle">第三志愿<font style="color:#CB0100;">院校</font>：
+          <select name="signprovince3" id="signprovince3">
+              <option value="0">省份</option>
+          </select>
+          <select name="signcollage3" id="signcollage3">
+              <option value="">请选择院校</option>
+          </select>
 
-</fieldset>
+            <select name="school3plan1" id="school3plan1">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school3plan2" id="school3plan2">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school3plan3" id="school3plan3">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school3plan4" id="school3plan4">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school3plan5" id="school3plan5">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school3plan6" id="school3plan6">
+              <option value="">请选择专业</option>
+          </select>
+        </td>
+             <td>
+                <input checked="checked" id="id_canadjust3" name="canadjust3" type="checkbox" value="1">
+                <label class="vCheckboxLabel" for="id_canadjust3">服从调剂</label>
+            </td>
+      </tr>
 
-<table>
-    <tr>
-    <td height="30" colspan="2" align="left" valign="middle">第一志愿<font style="color:#CB0100;">院校</font>：
-	  <select name="signprovince1" id="signprovince1">
-          <option value="0">省份</option>
-      </select>
-	  <select name="signcollage1" id="signcollage1">
-          <option value="">请选择院校</option>
-      </select>
+        <tr>
+            <td height="30" colspan="2" align="left" valign="middle">第四志愿<font style="color:#CB0100;">院校</font>：
+          <select name="signprovince4" id="signprovince4">
+              <option value="0">省份</option>
+          </select>
+          <select name="signcollage4" id="signcollage4">
+              <option value="">请选择院校</option>
+          </select>
 
-        <select name="school1plan1" id="school1plan1">
-          <option value="">请选择专业</option>
-      </select>
-        <select name="school1plan2" id="school1plan2">
-          <option value="">请选择专业</option>
-      </select>
-        <select name="school1plan3" id="school1plan3">
-          <option value="">请选择专业</option>
-      </select>
-        <select name="school1plan4" id="school1plan4">
-          <option value="">请选择专业</option>
-      </select>
-        <select name="school1plan5" id="school1plan5">
-          <option value="">请选择专业</option>
-      </select>
-        <select name="school1plan6" id="school1plan6">
-          <option value="">请选择专业</option>
-      </select>
-    </td>
-  </tr>
-</table>
+            <select name="school4plan1" id="school4plan1">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school4plan2" id="school4plan2">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school4plan3" id="school4plan3">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school4plan4" id="school4plan4">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school4plan5" id="school4plan5">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school4plan6" id="school4plan6">
+              <option value="">请选择专业</option>
+          </select>
+        </td>
+             <td>
+                <input checked="checked" id="id_canadjust4" name="canadjust4" type="checkbox" value="1">
+                <label class="vCheckboxLabel" for="id_canadjust4">服从调剂</label>
+            </td>
+        </tr>
 
+        <tr>
+            <td height="30" colspan="2" align="left" valign="middle">第五志愿<font style="color:#CB0100;">院校</font>：
+          <select name="signprovince5" id="signprovince5">
+              <option value="0">省份</option>
+          </select>
+          <select name="signcollage5" id="signcollage5">
+              <option value="">请选择院校</option>
+          </select>
+
+            <select name="school5plan1" id="school5plan1">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school5plan2" id="school5plan2">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school5plan3" id="school5plan3">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school5plan4" id="school5plan4">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school5plan5" id="school5plan5">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school5plan6" id="school5plan6">
+              <option value="">请选择专业</option>
+          </select>
+        </td>
+             <td>
+                <input checked="checked" id="id_canadjust5" name="canadjust5" type="checkbox" value="1">
+                <label class="vCheckboxLabel" for="id_canadjust5">服从调剂</label>
+            </td>
+        </tr>
+        <tr>
+            <td height="30" colspan="2" align="left" valign="middle">第六志愿<font style="color:#CB0100;">院校</font>：
+          <select name="signprovince6" id="signprovince6">
+              <option value="0">省份</option>
+          </select>
+          <select name="signcollage6" id="signcollage6">
+              <option value="">请选择院校</option>
+          </select>
+
+            <select name="school6plan1" id="school6plan1">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school6plan2" id="school6plan2">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school6plan3" id="school6plan3">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school6plan4" id="school6plan4">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school6plan5" id="school6plan5">
+              <option value="">请选择专业</option>
+          </select>
+            <select name="school6plan6" id="school6plan6">
+              <option value="">请选择专业</option>
+          </select>
+        </td>
+             <td>
+                <input checked="checked" id="id_canadjust6" name="canadjust6" type="checkbox" value="1">
+                <label class="vCheckboxLabel" for="id_canadjust6">服从调剂</label>
+            </td>
+        </tr>
+    </table>
+
+    <input type="hidden" name="type" value="1">
+    <input type="submit" value="Vote" />
 
 </form>
 </body>
